@@ -6,6 +6,10 @@ TagManager:
   tags:
   - coin
   - enemy
+  - sword
+  - player
+  - healthnum
+  - end
   layers:
   - Default
   - TransparentFX
