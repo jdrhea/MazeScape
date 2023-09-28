@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PatrolLog : MonoBehaviour
 {
     public GameObject pointa;
     public GameObject pointb;
-    private Rigidbody2D rb;
-    private Transform currentPoint;
+    public Rigidbody2D rb;
+    public Transform currentPoint;
     public float speed;
+    public Image healthBar;
+    public float healthAmount = 100f;
+    public bool isCollision = false;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointb.transform;
@@ -18,7 +22,7 @@ public class PatrolLog : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         Vector2 point = currentPoint.position - transform.position;
         if(currentPoint == pointb.transform)
@@ -39,6 +43,55 @@ public class PatrolLog : MonoBehaviour
             currentPoint = pointb.transform;
         }
         
+        HealthBarUpdate();
+    }
+    void HealthBarUpdate()
+    {
+        if (healthAmount <= 0)
+        {
+            //  Application.LoadLevel(Application.loadedLevel);
+            Destroy(gameObject);
+                
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && isCollision)
+        {
+            TakeDamage(5);
+            //isCollision = false;
         
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Heal(5);
+        }
+           
+    }
+     private void OnTriggerEnter2D(Collider2D collision)
+     {
+        if (collision.CompareTag("player"))
+        {
+            isCollision = true;
+        }
+     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+     {
+        if (collision.CompareTag("player"))
+        {
+            isCollision = false;
+        }
+     }
+      public void TakeDamage(float damage)
+    {
+        healthAmount -= damage;
+        healthBar.fillAmount = healthAmount / 100f;
+
+
+    }
+    public void Heal(float healingAmount)
+    {
+        healthAmount += healingAmount;
+        healthAmount = Mathf.Clamp(healthAmount, 0, 100);
+
+        healthBar.fillAmount = healthAmount / 100f;
     }
 }

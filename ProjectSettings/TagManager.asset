@@ -10,6 +10,8 @@ TagManager:
   - player
   - healthnum
   - end
+  - circle
+  - innerEnemy
   layers:
   - Default
   - TransparentFX
