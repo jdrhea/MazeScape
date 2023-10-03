@@ -12,6 +12,7 @@ TagManager:
   - end
   - circle
   - innerEnemy
+  - wall
   layers:
   - Default
   - TransparentFX

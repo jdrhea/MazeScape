@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
             healthValue -= 20;
             SetHealth();
            
-       } 
+       }
        if (healthValue <= 0) // for health !
        {
             Die();
