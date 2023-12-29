@@ -13,6 +13,11 @@ public class PatrolLog : MonoBehaviour
     public Image healthBar;
     public float healthAmount = 100f;
     public bool isCollision = false;
+    public Text score;
+    private int scoreValue = 0;
+    public Text sword;
+    private int swordValue = 0;
+    
     // Start is called before the first frame update
     public void Start()
     {
@@ -51,6 +56,8 @@ public class PatrolLog : MonoBehaviour
         {
             //  Application.LoadLevel(Application.loadedLevel);
             Destroy(gameObject);
+            scoreValue += 2;
+            SetCoinval();
                 
         }
         if (Input.GetKeyDown(KeyCode.Space) && isCollision)
@@ -58,11 +65,18 @@ public class PatrolLog : MonoBehaviour
             TakeDamage(5);
             //isCollision = false;
         
+        
         }
+        // if (swordValue == 1 && Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     TakeDamage(20);
+        //}
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Heal(5);
         }
+       
+    
            
     }
      private void OnTriggerEnter2D(Collider2D collision)
@@ -93,5 +107,9 @@ public class PatrolLog : MonoBehaviour
         healthAmount = Mathf.Clamp(healthAmount, 0, 100);
 
         healthBar.fillAmount = healthAmount / 100f;
+    }
+    public void SetCoinval()
+    {
+        score.text = "$ " + scoreValue;
     }
 }
