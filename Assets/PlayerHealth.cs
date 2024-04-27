@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text score;
-    private int scoreValue = 3;
+    // public Text score;
+    // private int scoreValue = 3;
     Vector2 startPos;
     public Text health;
     private int healthValue = 100;
-
-    
 
     private void Start()
     {
@@ -40,15 +38,8 @@ public class PlayerHealth : MonoBehaviour
             healthValue = 100;
             SetHealth();
        } 
-       if (scoreValue == 0) // for lives !
-       {
-            healthValue = 100;
-            resetLives();
-            SetScore();
-       }
        if (collision.CompareTag("xp"))
         {
-            Debug.Log("derp");
             collision.gameObject.SetActive(false);
             healthValue += 20;
             SetHealth();
@@ -57,24 +48,14 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Deathscreen();
-        Debug.Log("D'oh!");
-        scoreValue -= 1;
-        SetScore();
         SetHealth();
         
     }
     void Deathscreen(){
         SceneManager.LoadSceneAsync("Game Over");
     }
-    void SetScore(){
-        score.text = "L: " + scoreValue;
-    }
+
     void SetHealth(){
         health.text = "HP: " + healthValue;
-    }
-    void resetLives(){
-        healthValue = 100;
-        scoreValue = 3;
-        
     }
 }

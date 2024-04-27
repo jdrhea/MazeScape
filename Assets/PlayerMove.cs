@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMove : MonoBehaviour
@@ -34,7 +35,7 @@ public class PlayerMove : MonoBehaviour
 
         rb2d.velocity = movement * activeMoveSpeed;
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown("left shift"))
         {
             if (dashCoolCounter <=0 && dashCounter <= 0)
             {
@@ -65,12 +66,31 @@ public class PlayerMove : MonoBehaviour
         {
             dashCoolCounter -= Time.deltaTime;
         }
+
+        if (EnergyAmount <= 0)
+        {
+            Death();
+            
+        }
+
+    }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+        
+            if (collision.CompareTag("apple"))
+                {
+                    collision.gameObject.SetActive(false);
+                    DecreaseHunger(20);
+                
+                }
+        
+        }
         // if (Input.GetKeyUp(KeyCode.X))
         // {
         //     moveSpeed-=5;
         // }
         
-    }
+    
 
     public void TakeHunger(float hunger)
     {
@@ -78,5 +98,16 @@ public class PlayerMove : MonoBehaviour
         StaminaBar.fillAmount = EnergyAmount / 100f;
 
 
+    }
+    public void DecreaseHunger(float fill)
+    {
+        EnergyAmount += fill;
+        StaminaBar.fillAmount = EnergyAmount / 100f;
+
+
+    }
+    public void Death()
+    {
+        SceneManager.LoadSceneAsync("Game Over");
     }
 }

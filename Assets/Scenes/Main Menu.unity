@@ -411,7 +411,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: v0.40beta
+  m_Text: v0.50beta
 --- !u!222 &1014927121
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -491,8 +491,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "WASD or arrow keys (for movement)\nX for Sprinting\nspace for killing
-    \nbtw the sword does not work for now lol"
+  m_Text: "WASD or arrow keys (for movement)\nShift for Sprinting\nspace for killing
+    \n"
 --- !u!222 &1340595577
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0.94759375, b: 0, a: 1}
+  m_Color: {r: 0.9607843, g: 0.20062473, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -572,7 +572,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Celebrating 6 months
+  m_Text: Celebrating 9 months
 --- !u!222 &1514432048
 CanvasRenderer:
   m_ObjectHideFlags: 0

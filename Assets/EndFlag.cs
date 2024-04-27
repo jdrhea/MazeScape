@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndFlag : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class EndFlag : MonoBehaviour
        if (collision.CompareTag("player"))
        {
             Debug.Log("YOU WIN!!");
+            SceneManager.LoadSceneAsync("WinScreen");
        } 
     }
 }
