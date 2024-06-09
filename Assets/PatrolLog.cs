@@ -13,8 +13,8 @@ public class PatrolLog : MonoBehaviour
     public Image healthBar;
     public float healthAmount = 100f;
     
-    public Text score;
-    private int scoreValue = 0;
+    // public Text score;
+    // private int scoreValue = 0;
     public Text power;
 
     public bool isCollision = false;
@@ -57,13 +57,13 @@ public class PatrolLog : MonoBehaviour
         {
             //  Application.LoadLevel(Application.loadedLevel);
             Destroy(gameObject);
-            scoreValue += 2;
-            SetCoinval();
+            // scoreValue += 2;
+            // SetCoinval();
                 
         }
         if (ObjectCollector.currentPowerValue == 1 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
-            TakeDamage(5);
+            TakeDamage(10);
             //isCollision = false;
         
         
@@ -107,8 +107,8 @@ public class PatrolLog : MonoBehaviour
 
         healthBar.fillAmount = healthAmount / 100f;
     }
-    public void SetCoinval()
-    {
-        score.text = "$ " + scoreValue;
-    }
+    // public void SetCoinval()
+    // {
+    //     score.text = "$" + scoreValue;
+    // }
 }

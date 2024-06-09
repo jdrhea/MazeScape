@@ -8,6 +8,12 @@ public class PortalControl : MonoBehaviour
     public Transform destination;
     GameObject player;
 
+
+    void Update()
+    {
+        transform.Rotate (0f,0f,200f*Time.deltaTime, Space.Self); //rotates 50 degrees per second around z axis
+    }
+
     private void Awake()
     {
          player = GameObject.FindGameObjectWithTag("player");
@@ -25,4 +31,5 @@ public class PortalControl : MonoBehaviour
             }
         }
     }
+    
 }    

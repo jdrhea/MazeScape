@@ -17,6 +17,9 @@ TagManager:
   - xp
   - apple
   - block
+  - fasterinnerEnemy
+  - key
+  - door
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ObjectType
 {
     public string objectName;
@@ -80,7 +81,7 @@ public class ObjectCollector : MonoBehaviour
                 // BlockNewParent(parent);
                 BlockParent(parent);
                 isNewParentSword = false;
-                Debug.Log("works2");
+                
             }
         }
         
@@ -168,13 +169,13 @@ public class ObjectCollector : MonoBehaviour
     {
         childBlock.transform.SetParent(parent);
         childBlock.position = Slot.position;
-        Debug.Log("works3");
+        //Debug.Log("works3");
     }
     public void SwordParent(Transform Slot2)
     {
         childSword.transform.SetParent(parent);
         childSword.position = Slot2.position;
-        Debug.Log("works4");
+        //Debug.Log("works4");
     }
     
     

@@ -45,7 +45,7 @@ public class PlayerMove : MonoBehaviour
             }
             if (HungerOn == false)
             {
-                TakeHunger(5);
+                TakeHunger(10);
             }
             
         
@@ -108,6 +108,6 @@ public class PlayerMove : MonoBehaviour
     }
     public void Death()
     {
-        SceneManager.LoadSceneAsync("Game Over");
+        SceneManager.LoadSceneAsync("GameOver");
     }
 }

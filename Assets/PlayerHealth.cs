@@ -26,6 +26,12 @@ public class PlayerHealth : MonoBehaviour
             SetHealth();
            
        }
+       if (collision.CompareTag("fasterinnerEnemy") && !Input.GetKeyDown(KeyCode.Space))
+       {
+            healthValue -= 25;
+            SetHealth();
+           
+       }
        if (collision.CompareTag("spike"))
        {
             healthValue -= 40;
@@ -52,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
         
     }
     void Deathscreen(){
-        SceneManager.LoadSceneAsync("Game Over");
+        SceneManager.LoadSceneAsync("GameOver");
     }
 
     void SetHealth(){
