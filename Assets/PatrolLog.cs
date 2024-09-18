@@ -13,13 +13,12 @@ public class PatrolLog : MonoBehaviour
     public Image healthBar;
     public float healthAmount = 100f;
     
-    // public Text score;
-    // private int scoreValue = 0;
+
     public Text power;
 
     public bool isCollision = false;
     
-    // Start is called before the first frame update
+   
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,51 +26,76 @@ public class PatrolLog : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+    
     public void Update()
     {
-        Vector2 point = currentPoint.position - transform.position;
-        if(currentPoint == pointb.transform)
-        { 
-            rb.velocity = new Vector2(speed, 0);
-        }
-        else
+        if (gameObject.CompareTag("enemy"))
         {
-            rb.velocity = new Vector2(-speed, 0);
-        }
-
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointb.transform)
-        {
-            currentPoint = pointa.transform;
-        }
-        if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointa.transform)
-        {
-            currentPoint = pointb.transform;
-        }
+            Vector2 point = currentPoint.position - transform.position;
+            if(currentPoint == pointb.transform)
+            { 
+                rb.velocity = new Vector2(speed, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector2(-speed, 0);
+            }
         
-        HealthBarUpdate();
+            if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointb.transform)
+            {
+                currentPoint = pointa.transform;
+            }
+            if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointa.transform)
+            {
+                currentPoint = pointb.transform;
+            }
+            HealthBarUpdate();
+        
+
+        }
+        if (gameObject.CompareTag("verticalenemy"))
+        {
+            Vector2 point = currentPoint.position - transform.position;
+            if(currentPoint == pointb.transform)
+            { 
+                rb.velocity = new Vector2(0, speed);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, -speed);
+            }
+        
+            if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointb.transform)
+            {
+                currentPoint = pointa.transform;
+            }
+            if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointa.transform)
+            {
+                currentPoint = pointb.transform;
+            }
+
+            HealthBarUpdate();  
+        }
     }
     void HealthBarUpdate()
     {
         if (healthAmount <= 0)
         {
-            //  Application.LoadLevel(Application.loadedLevel);
+            
             Destroy(gameObject);
-            // scoreValue += 2;
-            // SetCoinval();
-                
+            
         }
         if (ObjectCollector.currentPowerValue == 1 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(10);
-            //isCollision = false;
+            
         
         
         }
         if (ObjectCollector.currentPowerValue == 2 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(20);
-            Debug.Log("it works!!!");
+            
         }
     
        
@@ -107,8 +131,5 @@ public class PatrolLog : MonoBehaviour
 
         healthBar.fillAmount = healthAmount / 100f;
     }
-    // public void SetCoinval()
-    // {
-    //     score.text = "$" + scoreValue;
-    // }
+    
 }

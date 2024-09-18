@@ -20,6 +20,15 @@ TagManager:
   - fasterinnerEnemy
   - key
   - door
+  - lava
+  - verticalenemy
+  - bullet
+  - ???
+  - AudioManager
+  - Transparent
+  - Water
+  - switch gravity
+  - switch gravity back
   layers:
   - Default
   - TransparentFX

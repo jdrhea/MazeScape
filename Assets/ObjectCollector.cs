@@ -124,7 +124,7 @@ public class ObjectCollector : MonoBehaviour
                 inventory.Add("block", new ObjectType());
                 Debug.Log("collect");
             }
-            SetCurrentObjectType("block", 1, 1);
+            SetCurrentObjectType("block", 2, 1);
         }
         
     }

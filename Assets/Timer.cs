@@ -10,6 +10,9 @@ public class Timer : MonoBehaviour
 
         [SerializeField] TextMeshProUGUI timerText;
         [SerializeField] float remainingTime;
+        public GameObject DeathScreenUI;
+        public GameObject player;
+
 
     // Update is called once per frame
     void Update()
@@ -26,6 +29,13 @@ public class Timer : MonoBehaviour
     }
     public void Death()
     {
-        SceneManager.LoadSceneAsync("GameOver");
+        Deathscreen();
+    }
+
+    void Deathscreen()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        DeathScreenUI.SetActive(true);
+        player.SetActive(true);
     }
 }

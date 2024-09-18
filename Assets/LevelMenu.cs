@@ -9,7 +9,7 @@ public class LevelMenu : MonoBehaviour
     {
         string LevelName = "Level" + LevelId;
         SceneManager.LoadScene(LevelName);
-
+        
     }
    
 }
