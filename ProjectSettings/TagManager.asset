@@ -29,6 +29,7 @@ TagManager:
   - Water
   - switch gravity
   - switch gravity back
+  - iron sword
   layers:
   - Default
   - TransparentFX

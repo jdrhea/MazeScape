@@ -41,7 +41,7 @@ public class CoinCollector : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Item1CostText.text = "+20 Health Points: $" + Item1Cost;
+        Item1CostText.text = "+10 Health Points: $" + Item1Cost;
         Item2CostText.text = "+20 Stamina Points: $" + Item2Cost;
     }
     void Update()

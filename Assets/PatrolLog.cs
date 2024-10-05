@@ -23,6 +23,8 @@ public class PatrolLog : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointb.transform;
+        ObjectCollector.currentPowerValue = 1;
+        
 
     }
 
@@ -95,6 +97,11 @@ public class PatrolLog : MonoBehaviour
         if (ObjectCollector.currentPowerValue == 2 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(20);
+            
+        }
+        if (ObjectCollector.currentPowerValue == 3 && Input.GetKeyDown(KeyCode.Space) && isCollision)
+        {
+            TakeDamage(50);
             
         }
     

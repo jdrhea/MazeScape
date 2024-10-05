@@ -1517,6 +1517,82 @@ RectTransform:
   m_AnchoredPosition: {x: 49.58001, y: 108.899994}
   m_SizeDelta: {x: 233.63998, y: 34.259995}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &347719723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347719726}
+  - component: {fileID: 347719725}
+  - component: {fileID: 347719724}
+  m_Layer: 0
+  m_Name: slot0ironsword
+  m_TagString: iron sword
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &347719724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347719723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 686d2f92636594a55b729dba2c61901c, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &347719725
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347719723}
+  m_CullTransparentMesh: 1
+--- !u!224 &347719726
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347719723}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2025}
+  m_LocalScale: {x: 10.335091, y: 8.298307, z: 22.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3048284128476768698}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000045776367, y: 0.000015258789}
+  m_SizeDelta: {x: 10.66, y: 6.0025}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &383293280
 GameObject:
   m_ObjectHideFlags: 0
@@ -63476,8 +63552,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -67996,16 +68072,21 @@ MonoBehaviour:
   currentPower: {fileID: 1901099514}
   slot0: {fileID: 1827005676}
   slot0b: {fileID: 1019638652}
+  slot0c: {fileID: 0}
   AppearAmount: 1
   AppearAmount2: 0
+  AppearAmount3: 0
   isCollisionSword: 0
   isCollisionBlock: 0
+  isCollisionIronSword: 0
   childBlock: {fileID: 1019638649}
   parent: {fileID: 3048284128476768698}
   newParent: {fileID: 0}
   childSword: {fileID: 1827005675}
+  childIronSword: {fileID: 0}
   isNewParentSword: 0
   isNewParentBlock: 0
+  isNewParentIronSword: 0
 --- !u!1 &2019023982
 GameObject:
   m_ObjectHideFlags: 0
@@ -68203,16 +68284,21 @@ MonoBehaviour:
   currentPower: {fileID: 1901099514}
   slot0: {fileID: 1827005676}
   slot0b: {fileID: 1019638652}
+  slot0c: {fileID: 0}
   AppearAmount: 0
   AppearAmount2: 0
+  AppearAmount3: 0
   isCollisionSword: 0
   isCollisionBlock: 0
+  isCollisionIronSword: 0
   childBlock: {fileID: 1019638649}
   parent: {fileID: 3048284128476768698}
   newParent: {fileID: 0}
   childSword: {fileID: 1827005675}
+  childIronSword: {fileID: 0}
   isNewParentSword: 0
   isNewParentBlock: 0
+  isNewParentIronSword: 0
 --- !u!61 &2074575409
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68742,6 +68828,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1019638652}
     - target: {fileID: 2062248222069171668, guid: 930d389b45265467bbe9ba60f83976f5, type: 3}
+      propertyPath: slot0c
+      value: 
+      objectReference: {fileID: 347719724}
+    - target: {fileID: 2062248222069171668, guid: 930d389b45265467bbe9ba60f83976f5, type: 3}
       propertyPath: newParent
       value: 
       objectReference: {fileID: 1743657163245788659}
@@ -68757,6 +68847,10 @@ PrefabInstance:
       propertyPath: currentPower
       value: 
       objectReference: {fileID: 1901099514}
+    - target: {fileID: 2062248222069171668, guid: 930d389b45265467bbe9ba60f83976f5, type: 3}
+      propertyPath: childIronSword
+      value: 
+      objectReference: {fileID: 347719726}
     - target: {fileID: 2062248222069171668, guid: 930d389b45265467bbe9ba60f83976f5, type: 3}
       propertyPath: currentObjectName
       value: 
@@ -69260,6 +69354,7 @@ RectTransform:
   - {fileID: 1827005675}
   - {fileID: 1019638649}
   - {fileID: 1311233269}
+  - {fileID: 347719726}
   m_Father: {fileID: 2060239579}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

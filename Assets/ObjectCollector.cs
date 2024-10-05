@@ -21,14 +21,20 @@ public class ObjectCollector : MonoBehaviour
     public Image slot0;
     public Image slot0b;
 
+    public Image slot0c;
+
     public float AppearAmount = 0f;
     public float AppearAmount2 = 0f;
+
+    public float AppearAmount3 = 0f;
     public static int currentPowerValue = 1;
     private int currentScoreValue = 0;
 
     public bool isCollisionSword = false;
 
     public bool isCollisionBlock = false;
+
+    public bool isCollisionIronSword = false;
 
     public Transform childBlock;
 
@@ -38,9 +44,15 @@ public class ObjectCollector : MonoBehaviour
 
     public Transform childSword;
 
+    public Transform childIronSword;
+
     public bool isNewParentSword = false;
 
     public bool isNewParentBlock = false;
+
+    public bool isNewParentIronSword = false;
+
+
 
     
 
@@ -52,7 +64,7 @@ public class ObjectCollector : MonoBehaviour
         if (isCollisionSword) // sword is collected
         {
             TakeSword(100);
-            if (isCollisionBlock) //isCollioison block refers to colliding with player
+            if (isCollisionBlock) //isCollioison block refers to colliding with player first
             {
                 BlockNewParent(newParent);
                 //isCollisionBlock = false;
@@ -81,6 +93,34 @@ public class ObjectCollector : MonoBehaviour
                 // BlockNewParent(parent);
                 BlockParent(parent);
                 isNewParentSword = false;
+                
+            }
+        }
+        if (isCollisionIronSword)//when iron sword is just collected
+        {
+            TakeIronSword(100);
+            if (isCollisionSword)
+            {
+                SwordNewParent(newParent);
+                //isCollisionSword = false;
+            }
+            if (isNewParentSword == true)
+            {
+                // BlockNewParent(parent);
+                BlockParent(parent);
+                isNewParentSword = false;
+                
+            }
+            if (isCollisionBlock)
+            {
+                BlockNewParent(newParent);
+                //isCollisionSword = false;
+            }
+            if (isNewParentBlock == true)
+            {
+                // BlockNewParent(parent);
+                SwordParent(parent);
+                isNewParentBlock = false;
                 
             }
         }
@@ -122,9 +162,22 @@ public class ObjectCollector : MonoBehaviour
                 ((ObjectType)inventory["block"]).quantity += 1;
             } else {
                 inventory.Add("block", new ObjectType());
-                Debug.Log("collect");
-            }
+                //Debug.Log("collect");
+            } 
             SetCurrentObjectType("block", 2, 1);
+        }
+        else if (collision.gameObject.tag == "iron sword")
+        {
+            isCollisionIronSword = true;
+            collision.gameObject.SetActive(false);
+            if(inventory.ContainsKey("iron sword")){
+                ((ObjectType)inventory["iron sword"]).quantity += 1;
+            } else {
+                inventory.Add("iron sword", new ObjectType());
+                //Debug.Log("collect");
+            } 
+            SetCurrentObjectType("iron sword", 3, 1);
+            Debug.Log(currentPower);
         }
         
     }
@@ -150,18 +203,33 @@ public class ObjectCollector : MonoBehaviour
 
 
     }
-    public void BlockNewParent(Transform newParentB)
+    public void TakeIronSword(float Collect3)
+    {
+        AppearAmount3 = Collect3;
+        slot0c.fillAmount = AppearAmount3 / 100f;
+
+
+    }
+    public void BlockNewParent(Transform newParentA)
     {
         childBlock.transform.SetParent(newParent);
-        childBlock.position = newParentB.position;
+        childBlock.position = newParentA.position;
         isNewParentBlock = true;
         
     }
-    public void SwordNewParent(Transform newParentA)
+    public void SwordNewParent(Transform newParentB)
     {
         childSword.transform.SetParent(newParent);
-        childSword.position = newParentA.position;
+        childSword.position = newParentB.position;
         isNewParentSword = true;
+
+        
+    }
+    public void IronSwordNewParent(Transform newParentC)
+    {
+        childIronSword.transform.SetParent(newParent);
+        childIronSword.position = newParentC.position;
+        isNewParentIronSword = true;
 
         
     }
