@@ -87,7 +87,7 @@ public class PatrolLog : MonoBehaviour
             Destroy(gameObject);
             
         }
-        if (ObjectCollector.currentPowerValue == 1 && Input.GetKeyDown(KeyCode.Space) && isCollision)
+        if (ObjectCollector.currentPowerValue == 1 && isCollision)
         {
             TakeDamage(10);
             
