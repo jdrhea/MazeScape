@@ -87,43 +87,43 @@ public class PatrolLog : MonoBehaviour
             Destroy(gameObject);
             
         }
-        if (ObjectCollector.currentPowerValue == 1 && isCollision)
+        if (ObjectCollector.currentPowerValue == 1 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(10);
-            
-        
-        
+            isCollision = false;
         }
         if (ObjectCollector.currentPowerValue == 2 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(20);
+            isCollision = false;
             
         }
         if (ObjectCollector.currentPowerValue == 3 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(50);
-            
+            isCollision = false;
         }
     
        
     
            
     }
-     private void OnTriggerEnter2D(Collider2D collision)
-     {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.CompareTag("player"))
         {
             isCollision = true;
         }
+        
      }
 
     private void OnTriggerExit2D(Collider2D collision)
-     {
+    {
         if (collision.CompareTag("player"))
         {
             isCollision = false;
         }
-     }
+    }
     public void TakeDamage(float damage)
     {
         healthAmount -= damage;

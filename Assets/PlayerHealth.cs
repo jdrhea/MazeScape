@@ -133,7 +133,7 @@ public class PlayerHealth : MonoBehaviour
         
         
     }
-    void Die()
+    public void Die()
     {
         AudioManager.PlaySFX(AudioManager.oof);
         startPos = transform.position;

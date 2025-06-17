@@ -16,15 +16,15 @@ public class PlayerMove : MonoBehaviour
     public float dashSpeed;
     public float dashLength = .5f, dashCoolDown = 1f;
     private float dashCounter;
-    private float dashCoolCounter;
+    private float dashCoolCounter; // cooldown for the dash
     public bool HungerOn = false;
     public GameObject DeathScreenUI;
     public GameObject player;
     public float acceleration = 15f;
     public float maxSpeed = 10f; 
-    public float dagMaxSpeed = 0.6f; 
-
+    public float dagMaxSpeed = 0.6f; // diagonal max speed
     public float decceleration = 1f;
+
 
 
 
@@ -38,6 +38,7 @@ public class PlayerMove : MonoBehaviour
         activeMoveSpeed = moveSpeed;
         player.SetActive(true);
         acceleration = 15f;
+        EnergyAmount = 100f;
     
     }
     void Update()
@@ -109,7 +110,11 @@ public class PlayerMove : MonoBehaviour
 
         if (EnergyAmount <= 0)
         {
-            Death();
+            PlayerHealth health = player.GetComponent<PlayerHealth>();
+            if (health != null)
+            {
+                health.Die();
+            }
             
         }
 
@@ -175,11 +180,6 @@ public class PlayerMove : MonoBehaviour
         StaminaBar.fillAmount = EnergyAmount / 100f;
 
 
-    }
-    public void Death()
-    {
-        DeathScreenUI.SetActive(true);
-        player.SetActive(false);
     }
     public void Restart()
     {
