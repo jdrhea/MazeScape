@@ -124,12 +124,13 @@ public class ObjectCollector : MonoBehaviour
                 
             }
         }
-        
-        
-        
+
+
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             slot0.gameObject.SetActive(false);
+            currentPowerValue = 1;
         }
     }
         

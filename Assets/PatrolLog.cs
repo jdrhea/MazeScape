@@ -90,18 +90,15 @@ public class PatrolLog : MonoBehaviour
         if (ObjectCollector.currentPowerValue == 1 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(10);
-            isCollision = false;
         }
         if (ObjectCollector.currentPowerValue == 2 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(20);
-            isCollision = false;
             
         }
         if (ObjectCollector.currentPowerValue == 3 && Input.GetKeyDown(KeyCode.Space) && isCollision)
         {
             TakeDamage(50);
-            isCollision = false;
         }
     
        

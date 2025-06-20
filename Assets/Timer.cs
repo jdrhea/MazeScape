@@ -24,18 +24,12 @@ public class Timer : MonoBehaviour
 
         if(remainingTime <= 1)
         {
-            Death();
+            PlayerHealth health = player.GetComponent<PlayerHealth>();
+            if (health != null)
+            {
+                health.Die();
+            }
         }
     }
-    public void Death()
-    {
-        Deathscreen();
-    }
 
-    void Deathscreen()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        DeathScreenUI.SetActive(true);
-        player.SetActive(true);
-    }
 }
